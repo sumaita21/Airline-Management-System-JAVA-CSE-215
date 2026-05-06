@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="application.StaffDashboardController"
+            prefHeight="600.0" prefWidth="850.0"
+            style="-fx-background-color: #f0f4f8;">
+
+    <HBox spacing="0"
+          AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0"
+          AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+
+        <!-- Sidebar -->
+        <VBox spacing="10" prefWidth="210"
+              style="-fx-background-color: #1b5e20; -fx-padding: 20;">
+
+            <Label text="✈ AirlineMS"
+                   style="-fx-font-size: 18px; -fx-font-weight: bold;
+                          -fx-text-fill: white;"/>
+            <Label text="Staff Panel"
+                   style="-fx-text-fill: #a5d6a7; -fx-font-size: 12px;"/>
+            <Label fx:id="welcomeLabel" text=""
+                   style="-fx-text-fill: #c8e6c9; -fx-font-size: 11px;"/>
+
+            <Separator style="-fx-background-color: #2e7d32;"/>
+
+            <Button text="🏠  Dashboard"
+                    onAction="#showDashboard" maxWidth="190"
+                    style="-fx-background-color: #2e7d32; -fx-text-fill: white;
+                           -fx-font-size: 13px; -fx-padding: 10;
+                           -fx-cursor: hand; -fx-alignment: CENTER_LEFT;"/>
+            <Button text="✈  View Flights"
+                    onAction="#showFlights" maxWidth="190"
+                    style="-fx-background-color: transparent;
+                           -fx-text-fill: white; -fx-font-size: 13px;
+                           -fx-padding: 10; -fx-cursor: hand;
+                           -fx-alignment: CENTER_LEFT;"/>
+            <Button text="👥  Passenger Management"
+                    onAction="#showPassengers" maxWidth="190"
+                    style="-fx-background-color: transparent;
+                           -fx-text-fill: white; -fx-font-size: 13px;
+                           -fx-padding: 10; -fx-cursor: hand;
+                           -fx-alignment: CENTER_LEFT;"/>
+            <Button text="🎫  Book Ticket (Staff)"
+                    onAction="#showBookTicket" maxWidth="190"
+                    style="-fx-background-color: transparent;
+                           -fx-text-fill: white; -fx-font-size: 13px;
+                           -fx-padding: 10; -fx-cursor: hand;
+                           -fx-alignment: CENTER_LEFT;"/>
+
+            <VBox VBox.vgrow="ALWAYS"/>
+            <Button text="🚪  Logout"
+                    onAction="#handleLogout" maxWidth="190"
+                    style="-fx-background-color: #c62828; -fx-text-fill: white;
+                           -fx-font-size: 13px; -fx-padding: 10;
+                           -fx-cursor: hand;"/>
+        </VBox>
+
+        <!-- Main Content -->
+        <VBox spacing="20" HBox.hgrow="ALWAYS"
+              style="-fx-padding: 30;">
+
+            <Label text="Staff Dashboard"
+                   style="-fx-font-size: 22px; -fx-font-weight: bold;
+                          -fx-text-fill: #1b5e20;"/>
+
+            <!-- Stats -->
+            <HBox spacing="20">
+                <VBox alignment="CENTER" prefWidth="170" prefHeight="90"
+                      style="-fx-background-color: white; -fx-padding: 15;
+                             -fx-background-radius: 10;
+                             -fx-effect: dropshadow(gaussian,#ccc,5,0,0,2);">
+                    <Label text="✈" style="-fx-font-size: 24px;"/>
+                    <Label fx:id="flightsLabel" text="0"
+                           style="-fx-font-size: 22px; -fx-font-weight: bold;
+                                  -fx-text-fill: #1b5e20;"/>
+                    <Label text="Active Flights"
+                           style="-fx-text-fill: gray; -fx-font-size: 11px;"/>
+                </VBox>
+                <VBox alignment="CENTER" prefWidth="170" prefHeight="90"
+                      style="-fx-background-color: white; -fx-padding: 15;
+                             -fx-background-radius: 10;
+                             -fx-effect: dropshadow(gaussian,#ccc,5,0,0,2);">
+                    <Label text="👥" style="-fx-font-size: 24px;"/>
+                    <Label fx:id="passengersLabel" text="0"
+                           style="-fx-font-size: 22px; -fx-font-weight: bold;
+                                  -fx-text-fill: #43a047;"/>
+                    <Label text="Total Passengers"
+                           style="-fx-text-fill: gray; -fx-font-size: 11px;"/>
+                </VBox>
+                <VBox alignment="CENTER" prefWidth="170" prefHeight="90"
+                      style="-fx-background-color: white; -fx-padding: 15;
+                             -fx-background-radius: 10;
+                             -fx-effect: dropshadow(gaussian,#ccc,5,0,0,2);">
+                    <Label text="🎫" style="-fx-font-size: 24px;"/>
+                    <Label fx:id="bookingsLabel" text="0"
+                           style="-fx-font-size: 22px; -fx-font-weight: bold;
+                                  -fx-text-fill: #ff8f00;"/>
+                    <Label text="Total Bookings"
+                           style="-fx-text-fill: gray; -fx-font-size: 11px;"/>
+                </VBox>
+            </HBox>
+
+            <!-- Today's Flights -->
+            <Label text="Today's Flights"
+                   style="-fx-font-size: 15px; -fx-font-weight: bold;"/>
+            <TableView fx:id="flightsTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colNo"    text="Flight No" prefWidth="100"/>
+                    <TableColumn fx:id="colFrom"  text="From"      prefWidth="110"/>
+                    <TableColumn fx:id="colTo"    text="To"        prefWidth="110"/>
+                    <TableColumn fx:id="colDate"  text="Date"      prefWidth="100"/>
+                    <TableColumn fx:id="colTime"  text="Time"      prefWidth="80"/>
+                    <TableColumn fx:id="colSeats" text="Seats Left" prefWidth="90"/>
+                    <TableColumn fx:id="colStat"  text="Status"    prefWidth="90"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </HBox>
+</AnchorPane>

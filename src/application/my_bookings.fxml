@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="application.MyBookingsController"
+            prefHeight="600.0" prefWidth="900.0"
+            style="-fx-background-color: #f0f4f8;">
+
+    <VBox spacing="20" style="-fx-padding: 30;"
+          AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0"
+          AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+
+        <HBox alignment="CENTER_LEFT" spacing="15">
+            <Button text="← Back" onAction="#handleBack"
+                    style="-fx-background-color: #1a237e; -fx-text-fill: white;
+                           -fx-padding: 8 15; -fx-cursor: hand;"/>
+            <Label text="🎫 My Bookings"
+                   style="-fx-font-size: 20px; -fx-font-weight: bold;
+                          -fx-text-fill: #1a237e;"/>
+        </HBox>
+
+        <TableView fx:id="bookingsTable" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="colBookingId"  text="Booking ID"   prefWidth="140"/>
+                <TableColumn fx:id="colFlight"     text="Flight"       prefWidth="90"/>
+                <TableColumn fx:id="colFrom"       text="From"         prefWidth="100"/>
+                <TableColumn fx:id="colTo"         text="To"           prefWidth="100"/>
+                <TableColumn fx:id="colDate"       text="Date"         prefWidth="100"/>
+                <TableColumn fx:id="colSeat"       text="Seat"         prefWidth="70"/>
+                <TableColumn fx:id="colClass"      text="Class"        prefWidth="85"/>
+                <TableColumn fx:id="colPrice"      text="Price(৳)"     prefWidth="80"/>
+                <TableColumn fx:id="colStatus"     text="Status"       prefWidth="90"/>
+            </columns>
+        </TableView>
+
+        <HBox spacing="15" alignment="CENTER_RIGHT">
+            <Button text="❌ Cancel Selected"
+                    onAction="#handleCancel"
+                    style="-fx-background-color: #c62828; -fx-text-fill: white;
+                           -fx-padding: 10 20; -fx-cursor: hand;"/>
+        </HBox>
+    </VBox>
+</AnchorPane>

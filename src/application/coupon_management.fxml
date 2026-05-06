@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="application.CouponManagementController"
+            prefHeight="600.0" prefWidth="800.0"
+            style="-fx-background-color: #f0f4f8;">
+
+    <VBox spacing="15" style="-fx-padding: 25;"
+          AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0"
+          AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+
+        <HBox alignment="CENTER_LEFT" spacing="15">
+            <Button text="← Back" onAction="#handleBack"
+                    style="-fx-background-color: #1a237e; -fx-text-fill: white;
+                           -fx-padding: 8 15; -fx-cursor: hand;"/>
+            <Label text="🎟 Coupon Management"
+                   style="-fx-font-size: 20px; -fx-font-weight: bold;
+                          -fx-text-fill: #1a237e;"/>
+        </HBox>
+
+        <!-- Add Coupon Form -->
+        <VBox spacing="10" style="-fx-background-color: white; -fx-padding: 15;
+                                   -fx-background-radius: 10;
+                                   -fx-effect: dropshadow(gaussian,#ccc,5,0,0,2);">
+            <Label text="Create New Coupon"
+                   style="-fx-font-weight: bold; -fx-font-size: 14px;"/>
+            <HBox spacing="10">
+                <TextField fx:id="couponCodeField" promptText="Coupon Code"
+                           prefWidth="150" style="-fx-padding: 8;"/>
+                <TextField fx:id="discountField" promptText="Discount %"
+                           prefWidth="120" style="-fx-padding: 8;"/>
+                <DatePicker fx:id="expiryPicker" prefWidth="160"
+                            promptText="Expiry Date"/>
+                <Button text="Add Coupon" onAction="#handleAddCoupon"
+                        style="-fx-background-color: #43a047;
+                               -fx-text-fill: white; -fx-padding: 8 20;
+                               -fx-cursor: hand;"/>
+            </HBox>
+            <Label fx:id="formMessage" text=""
+                   style="-fx-font-size: 12px;"/>
+        </VBox>
+
+        <!-- Coupons Table -->
+        <TableView fx:id="couponsTable" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="colCode"     text="Code"       prefWidth="150"/>
+                <TableColumn fx:id="colDiscount" text="Discount %"  prefWidth="120"/>
+                <TableColumn fx:id="colExpiry"   text="Expiry"     prefWidth="130"/>
+                <TableColumn fx:id="colActive"   text="Active"     prefWidth="100"/>
+            </columns>
+        </TableView>
+
+        <HBox spacing="10" alignment="CENTER_RIGHT">
+            <Button text="⛔ Deactivate" onAction="#handleDeactivate"
+                    style="-fx-background-color: #c62828; -fx-text-fill: white;
+                           -fx-padding: 10 20; -fx-cursor: hand;"/>
+        </HBox>
+    </VBox>
+</AnchorPane>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="application.ReportsController"
+            prefHeight="600.0" prefWidth="900.0"
+            style="-fx-background-color: #f0f4f8;">
+
+    <VBox spacing="15" style="-fx-padding: 25;"
+          AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0"
+          AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+
+        <HBox alignment="CENTER_LEFT" spacing="15">
+            <Button text="← Back" onAction="#handleBack"
+                    style="-fx-background-color: #1a237e; -fx-text-fill: white;
+                           -fx-padding: 8 15; -fx-cursor: hand;"/>
+            <Label text="📊 Reports"
+                   style="-fx-font-size: 20px; -fx-font-weight: bold;
+                          -fx-text-fill: #1a237e;"/>
+        </HBox>
+
+        <!-- Summary Cards -->
+        <HBox spacing="20">
+            <VBox alignment="CENTER" prefWidth="180" prefHeight="90"
+                  style="-fx-background-color: white; -fx-padding: 15;
+                         -fx-background-radius: 10;
+                         -fx-effect: dropshadow(gaussian,#ccc,5,0,0,2);">
+                <Label text="Total Revenue"
+                       style="-fx-font-weight: bold; -fx-text-fill: gray;"/>
+                <Label fx:id="revenueLabel" text="৳ 0"
+                       style="-fx-font-size: 20px; -fx-font-weight: bold;
+                              -fx-text-fill: #1a237e;"/>
+            </VBox>
+            <VBox alignment="CENTER" prefWidth="180" prefHeight="90"
+                  style="-fx-background-color: white; -fx-padding: 15;
+                         -fx-background-radius: 10;
+                         -fx-effect: dropshadow(gaussian,#ccc,5,0,0,2);">
+                <Label text="Confirmed Bookings"
+                       style="-fx-font-weight: bold; -fx-text-fill: gray;"/>
+                <Label fx:id="confirmedLabel" text="0"
+                       style="-fx-font-size: 20px; -fx-font-weight: bold;
+                              -fx-text-fill: #43a047;"/>
+            </VBox>
+            <VBox alignment="CENTER" prefWidth="180" prefHeight="90"
+                  style="-fx-background-color: white; -fx-padding: 15;
+                         -fx-background-radius: 10;
+                         -fx-effect: dropshadow(gaussian,#ccc,5,0,0,2);">
+                <Label text="Cancelled Bookings"
+                       style="-fx-font-weight: bold; -fx-text-fill: gray;"/>
+                <Label fx:id="cancelledLabel" text="0"
+                       style="-fx-font-size: 20px; -fx-font-weight: bold;
+                              -fx-text-fill: #c62828;"/>
+            </VBox>
+            <VBox alignment="CENTER" prefWidth="180" prefHeight="90"
+                  style="-fx-background-color: white; -fx-padding: 15;
+                         -fx-background-radius: 10;
+                         -fx-effect: dropshadow(gaussian,#ccc,5,0,0,2);">
+                <Label text="Total Passengers"
+                       style="-fx-font-weight: bold; -fx-text-fill: gray;"/>
+                <Label fx:id="passengersLabel" text="0"
+                       style="-fx-font-size: 20px; -fx-font-weight: bold;
+                              -fx-text-fill: #ff8f00;"/>
+            </VBox>
+        </HBox>
+
+        <!-- Top Routes -->
+        <Label text="Top Routes"
+               style="-fx-font-size: 15px; -fx-font-weight: bold;"/>
+        <TableView fx:id="routesTable" prefHeight="200">
+            <columns>
+                <TableColumn fx:id="colRoute"    text="Route"        prefWidth="250"/>
+                <TableColumn fx:id="colBookings" text="Bookings"     prefWidth="120"/>
+                <TableColumn fx:id="colRevenue"  text="Revenue(৳)"   prefWidth="150"/>
+            </columns>
+        </TableView>
+
+        <!-- All Bookings Report -->
+        <Label text="All Bookings"
+               style="-fx-font-size: 15px; -fx-font-weight: bold;"/>
+        <TableView fx:id="allBookingsTable" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="colBId"     text="Booking ID"  prefWidth="140"/>
+                <TableColumn fx:id="colBUser"   text="User"        prefWidth="100"/>
+                <TableColumn fx:id="colBFlight" text="Flight"      prefWidth="80"/>
+                <TableColumn fx:id="colBRoute"  text="Route"       prefWidth="150"/>
+                <TableColumn fx:id="colBClass"  text="Class"       prefWidth="90"/>
+                <TableColumn fx:id="colBPrice"  text="Price(৳)"    prefWidth="90"/>
+                <TableColumn fx:id="colBMethod" text="Payment"     prefWidth="90"/>
+                <TableColumn fx:id="colBStatus" text="Status"      prefWidth="90"/>
+            </columns>
+        </TableView>
+    </VBox>
+</AnchorPane>

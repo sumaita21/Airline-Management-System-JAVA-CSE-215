@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="application.StaffFlightsController"
+            prefHeight="600.0" prefWidth="850.0"
+            style="-fx-background-color: #f0f4f8;">
+
+    <VBox spacing="15" style="-fx-padding: 25;"
+          AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0"
+          AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+
+        <HBox alignment="CENTER_LEFT" spacing="15">
+            <Button text="← Back" onAction="#handleBack"
+                    style="-fx-background-color: #1b5e20; -fx-text-fill: white;
+                           -fx-padding: 8 15; -fx-cursor: hand;"/>
+            <Label text="✈ All Flights"
+                   style="-fx-font-size: 20px; -fx-font-weight: bold;
+                          -fx-text-fill: #1b5e20;"/>
+        </HBox>
+
+        <!-- Search -->
+        <HBox spacing="10">
+            <TextField fx:id="searchFrom" promptText="From"
+                       prefWidth="150" style="-fx-padding: 8;"/>
+            <TextField fx:id="searchTo" promptText="To"
+                       prefWidth="150" style="-fx-padding: 8;"/>
+            <Button text="Search" onAction="#handleSearch"
+                    style="-fx-background-color: #1b5e20; -fx-text-fill: white;
+                           -fx-padding: 8 20; -fx-cursor: hand;"/>
+            <Button text="Show All" onAction="#handleShowAll"
+                    style="-fx-background-color: #43a047; -fx-text-fill: white;
+                           -fx-padding: 8 20; -fx-cursor: hand;"/>
+        </HBox>
+
+        <TableView fx:id="flightsTable" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="colNo"       text="Flight No"   prefWidth="100"/>
+                <TableColumn fx:id="colFrom"     text="From"        prefWidth="110"/>
+                <TableColumn fx:id="colTo"       text="To"          prefWidth="110"/>
+                <TableColumn fx:id="colDate"     text="Date"        prefWidth="100"/>
+                <TableColumn fx:id="colTime"     text="Time"        prefWidth="80"/>
+                <TableColumn fx:id="colEconomy"  text="Economy(৳)"  prefWidth="100"/>
+                <TableColumn fx:id="colBusiness" text="Business(৳)" prefWidth="100"/>
+                <TableColumn fx:id="colFirst"    text="First(৳)"    prefWidth="90"/>
+                <TableColumn fx:id="colSeats"    text="Seats Left"  prefWidth="90"/>
+            </columns>
+        </TableView>
+    </VBox>
+</AnchorPane>

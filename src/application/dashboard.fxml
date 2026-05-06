@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="application.DashboardController"
+            prefHeight="500.0" prefWidth="700.0"
+            style="-fx-background-color: #f0f4f8;">
+
+    <VBox spacing="15"
+          AnchorPane.topAnchor="20" AnchorPane.bottomAnchor="20"
+          AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20">
+
+        <!-- Header -->
+        <HBox alignment="CENTER_LEFT" spacing="10">
+            <Label text="✈ Airline Management System"
+                   style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #1a237e;"/>
+        </HBox>
+
+        <Label text="Available Flights"
+               style="-fx-font-size: 15px; -fx-font-weight: bold; -fx-text-fill: #333;"/>
+
+        <!-- Flights Table -->
+        <TableView fx:id="flightsTable" prefHeight="350">
+            <columns>
+                <TableColumn fx:id="colFlightNo"  text="Flight No"   prefWidth="100"/>
+                <TableColumn fx:id="colFrom"      text="From"        prefWidth="120"/>
+                <TableColumn fx:id="colTo"        text="To"          prefWidth="120"/>
+                <TableColumn fx:id="colDate"      text="Date"        prefWidth="110"/>
+                <TableColumn fx:id="colTime"      text="Time"        prefWidth="90"/>
+                <TableColumn fx:id="colSeats"     text="Seats Left"  prefWidth="90"/>
+            </columns>
+        </TableView>
+
+        <!-- Logout Button -->
+        <HBox alignment="CENTER_RIGHT">
+            <Button text="Logout" onAction="#handleLogout"
+                    style="-fx-background-color: #c62828; -fx-text-fill: white;
+                           -fx-font-size: 13px; -fx-padding: 8 20; -fx-cursor: hand;"/>
+        </HBox>
+
+    </VBox>
+</AnchorPane>

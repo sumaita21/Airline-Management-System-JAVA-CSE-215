@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="application.RegisterController"
+            prefHeight="620.0" prefWidth="500.0"
+            style="-fx-background-color: #e8f0fe;">
+
+    <ScrollPane fitToWidth="true"
+                AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0"
+                AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0"
+                style="-fx-background-color: transparent;">
+
+        <VBox alignment="CENTER" spacing="12" style="-fx-padding: 30;">
+
+            <Label text="✈ Create Account"
+                   style="-fx-font-size: 22px; -fx-font-weight: bold;
+                          -fx-text-fill: #1a237e;"/>
+            <Label text="Register to get started"
+                   style="-fx-font-size: 12px; -fx-text-fill: gray;"/>
+
+            <TextField fx:id="fullNameField" promptText="Full Name"
+                       maxWidth="300" style="-fx-padding: 10;"/>
+            <TextField fx:id="emailField" promptText="Email"
+                       maxWidth="300" style="-fx-padding: 10;"/>
+            <TextField fx:id="usernameField" promptText="Username"
+                       maxWidth="300" style="-fx-padding: 10;"/>
+            <PasswordField fx:id="passwordField" promptText="Password"
+                           maxWidth="300" style="-fx-padding: 10;"/>
+            <PasswordField fx:id="confirmPasswordField"
+                           promptText="Confirm Password"
+                           maxWidth="300" style="-fx-padding: 10;"/>
+
+            <!-- Role Selection -->
+            <VBox spacing="8" maxWidth="300"
+                  style="-fx-background-color: white; -fx-padding: 15;
+                         -fx-background-radius: 10;
+                         -fx-effect: dropshadow(gaussian,#ccc,5,0,0,2);">
+                <Label text="Select Account Type"
+                       style="-fx-font-weight: bold; -fx-font-size: 13px;"/>
+                <RadioButton fx:id="customerRadio" text="👤 Customer"
+                             onAction="#handleRoleChange"
+                             style="-fx-font-size: 13px;"/>
+                <RadioButton fx:id="staffRadio" text="👷 Staff"
+                             onAction="#handleRoleChange"
+                             style="-fx-font-size: 13px;"/>
+                <RadioButton fx:id="adminRadio" text="👨‍💼 Admin"
+                             onAction="#handleRoleChange"
+                             style="-fx-font-size: 13px;"/>
+
+                <!-- Staff Category (shown only if Staff selected) -->
+                <VBox fx:id="staffCategoryBox" spacing="8"
+                      visible="false" managed="false"
+                      style="-fx-padding: 10 0 0 0;">
+                    <Label text="Staff Category"
+                           style="-fx-font-weight: bold;
+                                  -fx-text-fill: #1b5e20;"/>
+                    <RadioButton fx:id="pilotRadio" text="✈ Pilot"
+                                 style="-fx-font-size: 13px;"/>
+                    <RadioButton fx:id="crewRadio" text="🛎 Crew"
+                                 style="-fx-font-size: 13px;"/>
+                </VBox>
+
+                <!-- Admin Key (shown only if Admin selected) -->
+                <VBox fx:id="adminKeyBox" spacing="8"
+                      visible="false" managed="false"
+                      style="-fx-padding: 10 0 0 0;">
+                    <Label text="Admin Secret Key"
+                           style="-fx-font-weight: bold;
+                                  -fx-text-fill: #c62828;"/>
+                    <PasswordField fx:id="adminKeyField"
+                                   promptText="Enter admin secret key"
+                                   style="-fx-padding: 8;"/>
+                    <Label text="Contact system admin for the key"
+                           style="-fx-font-size: 10px; -fx-text-fill: gray;"/>
+                </VBox>
+            </VBox>
+
+            <Label fx:id="messageLabel" text=""
+                   style="-fx-font-size: 12px;"/>
+
+            <Button text="Register" onAction="#handleRegister"
+                    maxWidth="300"
+                    style="-fx-background-color: #1a237e;
+                           -fx-text-fill: white; -fx-font-size: 14px;
+                           -fx-padding: 10; -fx-cursor: hand;"/>
+            <Button text="Back to Login" onAction="#handleBack"
+                    maxWidth="300"
+                    style="-fx-background-color: gray; -fx-text-fill: white;
+                           -fx-font-size: 12px; -fx-padding: 8;
+                           -fx-cursor: hand;"/>
+        </VBox>
+    </ScrollPane>
+</AnchorPane>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="application.UserManagementController"
+            prefHeight="600.0" prefWidth="900.0"
+            style="-fx-background-color: #f0f4f8;">
+
+    <VBox spacing="15" style="-fx-padding: 25;"
+          AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0"
+          AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+
+        <HBox alignment="CENTER_LEFT" spacing="15">
+            <Button text="← Back" onAction="#handleBack"
+                    style="-fx-background-color: #1a237e; -fx-text-fill: white;
+                           -fx-padding: 8 15; -fx-cursor: hand;"/>
+            <Label text="👥 User Management"
+                   style="-fx-font-size: 20px; -fx-font-weight: bold;
+                          -fx-text-fill: #1a237e;"/>
+        </HBox>
+
+        <!-- Search -->
+        <HBox spacing="10">
+            <TextField fx:id="searchField" promptText="Search by username or email..."
+                       prefWidth="300" style="-fx-padding: 10;"/>
+            <Button text="Search" onAction="#handleSearch"
+                    style="-fx-background-color: #1a237e; -fx-text-fill: white;
+                           -fx-padding: 10 20; -fx-cursor: hand;"/>
+            <Button text="Show All" onAction="#handleShowAll"
+                    style="-fx-background-color: #43a047; -fx-text-fill: white;
+                           -fx-padding: 10 20; -fx-cursor: hand;"/>
+        </HBox>
+
+        <TableView fx:id="usersTable" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="colId"       text="ID"       prefWidth="50"/>
+                <TableColumn fx:id="colName"     text="Name"     prefWidth="150"/>
+                <TableColumn fx:id="colEmail"    text="Email"    prefWidth="180"/>
+                <TableColumn fx:id="colUsername" text="Username" prefWidth="120"/>
+                <TableColumn fx:id="colRole"     text="Role"     prefWidth="80"/>
+                <TableColumn fx:id="colCreated"  text="Joined"   prefWidth="120"/>
+            </columns>
+        </TableView>
+
+        <HBox spacing="10" alignment="CENTER_RIGHT">
+            <Button text="🗑 Delete User" onAction="#handleDeleteUser"
+                    style="-fx-background-color: #c62828; -fx-text-fill: white;
+                           -fx-padding: 10 20; -fx-cursor: hand;"/>
+        </HBox>
+
+        <Label fx:id="message" text="" style="-fx-font-size: 12px;"/>
+    </VBox>
+</AnchorPane>

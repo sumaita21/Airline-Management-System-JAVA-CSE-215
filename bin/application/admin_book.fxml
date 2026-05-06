@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="application.AdminBookController"
+            prefHeight="650.0" prefWidth="800.0"
+            style="-fx-background-color: #f0f4f8;">
+
+    <VBox spacing="15" style="-fx-padding: 25;"
+          AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0"
+          AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+
+        <HBox alignment="CENTER_LEFT" spacing="15">
+            <Button text="← Back" onAction="#handleBack"
+                    style="-fx-background-color: #1a237e; -fx-text-fill: white;
+                           -fx-padding: 8 15; -fx-cursor: hand;"/>
+            <Label text="🎫 Book Flight (Admin - 85% Discount)"
+                   style="-fx-font-size: 18px; -fx-font-weight: bold;
+                          -fx-text-fill: #1a237e;"/>
+        </HBox>
+
+        <!-- Select Flight -->
+        <VBox spacing="10"
+              style="-fx-background-color: white; -fx-padding: 15;
+                     -fx-background-radius: 10;
+                     -fx-effect: dropshadow(gaussian,#ccc,5,0,0,2);">
+            <Label text="Step 1: Select Flight"
+                   style="-fx-font-weight: bold; -fx-font-size: 14px;"/>
+            <TableView fx:id="flightsTable" prefHeight="200">
+                <columns>
+                    <TableColumn fx:id="colNo"      text="Flight No"  prefWidth="100"/>
+                    <TableColumn fx:id="colFrom"    text="From"       prefWidth="110"/>
+                    <TableColumn fx:id="colTo"      text="To"         prefWidth="110"/>
+                    <TableColumn fx:id="colDate"    text="Date"       prefWidth="100"/>
+                    <TableColumn fx:id="colEconomy" text="Economy(৳)" prefWidth="100"/>
+                    <TableColumn fx:id="colSeats"   text="Seats Left" prefWidth="90"/>
+                </columns>
+            </TableView>
+        </VBox>
+
+        <!-- Booking Details -->
+        <VBox spacing="10"
+              style="-fx-background-color: white; -fx-padding: 15;
+                     -fx-background-radius: 10;
+                     -fx-effect: dropshadow(gaussian,#ccc,5,0,0,2);">
+            <Label text="Step 2: Booking Details"
+                   style="-fx-font-weight: bold; -fx-font-size: 14px;"/>
+            <HBox spacing="15">
+                <VBox spacing="5">
+                    <Label text="Passenger Name"
+                           style="-fx-font-weight: bold;"/>
+                    <TextField fx:id="passengerField"
+                               promptText="Full name"
+                               prefWidth="200" style="-fx-padding: 8;"/>
+                </VBox>
+                <VBox spacing="5">
+                    <Label text="Seat Class"
+                           style="-fx-font-weight: bold;"/>
+                    <ComboBox fx:id="classCombo" prefWidth="150"
+                              onAction="#handleClassSelected"/>
+                </VBox>
+                <VBox spacing="5">
+                    <Label text="Seat" style="-fx-font-weight: bold;"/>
+                    <ComboBox fx:id="seatCombo" prefWidth="120"/>
+                </VBox>
+            </HBox>
+        </VBox>
+
+        <!-- Price with 85% discount -->
+        <HBox spacing="30" alignment="CENTER_LEFT"
+              style="-fx-background-color: #e8eaf6; -fx-padding: 15;
+                     -fx-background-radius: 10;">
+            <VBox spacing="3">
+                <Label text="Original Price"
+                       style="-fx-font-weight: bold;"/>
+                <Label fx:id="originalPriceLabel" text="৳ 0"
+                       style="-fx-font-size: 14px;"/>
+            </VBox>
+            <VBox spacing="3">
+                <Label text="Admin Discount"
+                       style="-fx-font-weight: bold;"/>
+                <Label text="85% OFF"
+                       style="-fx-font-size: 14px; -fx-text-fill: #1a237e;
+                              -fx-font-weight: bold;"/>
+            </VBox>
+            <VBox spacing="3">
+                <Label text="Final Price"
+                       style="-fx-font-weight: bold;"/>
+                <Label fx:id="finalPriceLabel" text="৳ 0"
+                       style="-fx-font-size: 18px; -fx-font-weight: bold;
+                              -fx-text-fill: #1a237e;"/>
+            </VBox>
+        </HBox>
+
+        <Label fx:id="message" text="" style="-fx-font-size: 12px;"/>
+
+        <Button text="✅ Confirm Booking"
+                onAction="#handleConfirmBooking"
+                maxWidth="Infinity"
+                style="-fx-background-color: #1a237e; -fx-text-fill: white;
+                       -fx-font-size: 15px; -fx-padding: 13;
+                       -fx-cursor: hand;"/>
+    </VBox>
+</AnchorPane>

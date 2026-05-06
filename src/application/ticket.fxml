@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="application.TicketController"
+            prefHeight="700.0" prefWidth="600.0"
+            style="-fx-background-color: #f0f4f8;">
+
+    <VBox spacing="15" style="-fx-padding: 30;"
+          AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0"
+          AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+
+        <Label text="🎫 Booking Confirmed!"
+               style="-fx-font-size: 22px; -fx-font-weight: bold;
+                      -fx-text-fill: #2e7d32;"/>
+
+        <!-- Ticket Card -->
+        <VBox spacing="0" style="-fx-background-color: white;
+                                  -fx-background-radius: 15;
+                                  -fx-effect: dropshadow(gaussian,#aaa,10,0,0,3);">
+
+            <!-- Ticket Header -->
+            <VBox style="-fx-background-color: #1a237e;
+                         -fx-padding: 20; -fx-background-radius: 15 15 0 0;">
+                <Label text="✈ AIRLINE MANAGEMENT SYSTEM"
+                       style="-fx-text-fill: white; -fx-font-weight: bold;
+                              -fx-font-size: 16px;"/>
+                <Label text="BOARDING PASS"
+                       style="-fx-text-fill: #90caf9; -fx-font-size: 12px;"/>
+            </VBox>
+
+            <!-- Flight Route -->
+            <HBox alignment="CENTER" spacing="20"
+                  style="-fx-padding: 20; -fx-background-color: #e8f0fe;">
+                <VBox alignment="CENTER">
+                    <Label fx:id="sourceLabel" text=""
+                           style="-fx-font-size: 28px; -fx-font-weight: bold;
+                                  -fx-text-fill: #1a237e;"/>
+                    <Label text="FROM"
+                           style="-fx-font-size: 11px; -fx-text-fill: gray;"/>
+                </VBox>
+                <Label text="✈ ————————"
+                       style="-fx-font-size: 18px; -fx-text-fill: #1a237e;"/>
+                <VBox alignment="CENTER">
+                    <Label fx:id="destLabel" text=""
+                           style="-fx-font-size: 28px; -fx-font-weight: bold;
+                                  -fx-text-fill: #1a237e;"/>
+                    <Label text="TO"
+                           style="-fx-font-size: 11px; -fx-text-fill: gray;"/>
+                </VBox>
+            </HBox>
+
+            <!-- Ticket Details -->
+            <VBox spacing="12" style="-fx-padding: 20;">
+
+                <HBox spacing="40">
+                    <VBox spacing="3">
+                        <Label text="PASSENGER"
+                               style="-fx-font-size: 10px; -fx-text-fill: gray;"/>
+                        <Label fx:id="passengerLabel" text=""
+                               style="-fx-font-weight: bold; -fx-font-size: 14px;"/>
+                    </VBox>
+                    <VBox spacing="3">
+                        <Label text="BOOKING ID"
+                               style="-fx-font-size: 10px; -fx-text-fill: gray;"/>
+                        <Label fx:id="bookingIdLabel" text=""
+                               style="-fx-font-weight: bold; -fx-font-size: 14px;
+                                      -fx-text-fill: #1a237e;"/>
+                    </VBox>
+                </HBox>
+
+                <HBox spacing="40">
+                    <VBox spacing="3">
+                        <Label text="FLIGHT"
+                               style="-fx-font-size: 10px; -fx-text-fill: gray;"/>
+                        <Label fx:id="flightNoLabel" text=""
+                               style="-fx-font-weight: bold; -fx-font-size: 14px;"/>
+                    </VBox>
+                    <VBox spacing="3">
+                        <Label text="DATE"
+                               style="-fx-font-size: 10px; -fx-text-fill: gray;"/>
+                        <Label fx:id="dateLabel" text=""
+                               style="-fx-font-weight: bold; -fx-font-size: 14px;"/>
+                    </VBox>
+                    <VBox spacing="3">
+                        <Label text="TIME"
+                               style="-fx-font-size: 10px; -fx-text-fill: gray;"/>
+                        <Label fx:id="timeLabel" text=""
+                               style="-fx-font-weight: bold; -fx-font-size: 14px;"/>
+                    </VBox>
+                </HBox>
+
+                <HBox spacing="40">
+                    <VBox spacing="3">
+                        <Label text="SEAT"
+                               style="-fx-font-size: 10px; -fx-text-fill: gray;"/>
+                        <Label fx:id="seatLabel" text=""
+                               style="-fx-font-weight: bold; -fx-font-size: 14px;"/>
+                    </VBox>
+                    <VBox spacing="3">
+                        <Label text="CLASS"
+                               style="-fx-font-size: 10px; -fx-text-fill: gray;"/>
+                        <Label fx:id="classLabel" text=""
+                               style="-fx-font-weight: bold; -fx-font-size: 14px;"/>
+                    </VBox>
+                    <VBox spacing="3">
+                        <Label text="PAYMENT"
+                               style="-fx-font-size: 10px; -fx-text-fill: gray;"/>
+                        <Label fx:id="paymentLabel" text=""
+                               style="-fx-font-weight: bold; -fx-font-size: 14px;"/>
+                    </VBox>
+                </HBox>
+
+                <Separator/>
+
+                <HBox spacing="40">
+                    <VBox spacing="3">
+                        <Label text="ORIGINAL PRICE"
+                               style="-fx-font-size: 10px; -fx-text-fill: gray;"/>
+                        <Label fx:id="originalPriceLabel" text=""
+                               style="-fx-font-size: 13px;"/>
+                    </VBox>
+                    <VBox spacing="3">
+                        <Label text="DISCOUNT"
+                               style="-fx-font-size: 10px; -fx-text-fill: gray;"/>
+                        <Label fx:id="discountLabel" text=""
+                               style="-fx-font-size: 13px; -fx-text-fill: #43a047;"/>
+                    </VBox>
+                    <VBox spacing="3">
+                        <Label text="FINAL PRICE"
+                               style="-fx-font-size: 10px; -fx-text-fill: gray;"/>
+                        <Label fx:id="finalPriceLabel" text=""
+                               style="-fx-font-size: 16px; -fx-font-weight: bold;
+                                      -fx-text-fill: #1a237e;"/>
+                    </VBox>
+                </HBox>
+
+                <Label text="STATUS: CONFIRMED ✅"
+                       style="-fx-font-weight: bold; -fx-text-fill: #2e7d32;
+                              -fx-font-size: 13px;"/>
+            </VBox>
+        </VBox>
+
+        <!-- Action Buttons -->
+        <HBox spacing="15" alignment="CENTER">
+            <Button text="🏠 Go to Dashboard"
+                    onAction="#handleDashboard"
+                    style="-fx-background-color: #1a237e; -fx-text-fill: white;
+                           -fx-font-size: 13px; -fx-padding: 10 20;
+                           -fx-cursor: hand;"/>
+            <Button text="❌ Cancel Booking"
+                    onAction="#handleCancelBooking"
+                    style="-fx-background-color: #c62828; -fx-text-fill: white;
+                           -fx-font-size: 13px; -fx-padding: 10 20;
+                           -fx-cursor: hand;"/>
+        </HBox>
+    </VBox>
+</AnchorPane>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="application.UserDashboardController"
+            prefHeight="600.0" prefWidth="800.0"
+            style="-fx-background-color: #f0f4f8;">
+
+    <HBox spacing="0"
+          AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0"
+          AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+
+        <!-- Sidebar -->
+        <VBox spacing="10" prefWidth="200"
+              style="-fx-background-color: #1a237e; -fx-padding: 20;">
+
+            <Label text="✈ AirlineMS"
+                   style="-fx-font-size: 18px; -fx-font-weight: bold;
+                          -fx-text-fill: white;"/>
+            <Label fx:id="welcomeLabel" text="Welcome!"
+                   style="-fx-text-fill: #90caf9; -fx-font-size: 12px;"/>
+
+            <Separator style="-fx-background-color: #3949ab;"/>
+
+            <Button text="🏠  Dashboard" onAction="#showDashboard"
+                    maxWidth="180"
+                    style="-fx-background-color: #3949ab; -fx-text-fill: white;
+                           -fx-font-size: 13px; -fx-padding: 10; -fx-cursor: hand;
+                           -fx-alignment: CENTER_LEFT;"/>
+            <Button text="🔍  Search Flights" onAction="#showSearchFlight"
+                    maxWidth="180"
+                    style="-fx-background-color: transparent; -fx-text-fill: white;
+                           -fx-font-size: 13px; -fx-padding: 10; -fx-cursor: hand;
+                           -fx-alignment: CENTER_LEFT;"/>
+            <Button text="🎫  My Bookings" onAction="#showMyBookings"
+                    maxWidth="180"
+                    style="-fx-background-color: transparent; -fx-text-fill: white;
+                           -fx-font-size: 13px; -fx-padding: 10; -fx-cursor: hand;
+                           -fx-alignment: CENTER_LEFT;"/>
+
+            <VBox VBox.vgrow="ALWAYS"/>
+
+            <Button text="🚪  Logout" onAction="#handleLogout"
+                    maxWidth="180"
+                    style="-fx-background-color: #c62828; -fx-text-fill: white;
+                           -fx-font-size: 13px; -fx-padding: 10; -fx-cursor: hand;"/>
+        </VBox>
+
+        <!-- Main Content -->
+        <VBox spacing="20" HBox.hgrow="ALWAYS"
+              style="-fx-padding: 30;">
+
+            <Label text="User Dashboard"
+                   style="-fx-font-size: 22px; -fx-font-weight: bold;
+                          -fx-text-fill: #1a237e;"/>
+
+            <!-- Stats Cards -->
+            <HBox spacing="20">
+                <VBox alignment="CENTER" prefWidth="180" prefHeight="100"
+                      style="-fx-background-color: white; -fx-padding: 20;
+                             -fx-background-radius: 10;
+                             -fx-effect: dropshadow(gaussian,#ccc,5,0,0,2);">
+                    <Label text="✈" style="-fx-font-size: 28px;"/>
+                    <Label fx:id="totalFlightsLabel" text="0"
+                           style="-fx-font-size: 24px; -fx-font-weight: bold;
+                                  -fx-text-fill: #1a237e;"/>
+                    <Label text="Available Flights"
+                           style="-fx-text-fill: gray; -fx-font-size: 12px;"/>
+                </VBox>
+
+                <VBox alignment="CENTER" prefWidth="180" prefHeight="100"
+                      style="-fx-background-color: white; -fx-padding: 20;
+                             -fx-background-radius: 10;
+                             -fx-effect: dropshadow(gaussian,#ccc,5,0,0,2);">
+                    <Label text="🎫" style="-fx-font-size: 28px;"/>
+                    <Label fx:id="myBookingsLabel" text="0"
+                           style="-fx-font-size: 24px; -fx-font-weight: bold;
+                                  -fx-text-fill: #43a047;"/>
+                    <Label text="My Bookings"
+                           style="-fx-text-fill: gray; -fx-font-size: 12px;"/>
+                </VBox>
+            </HBox>
+
+            <!-- Recent Bookings -->
+            <Label text="My Recent Bookings"
+                   style="-fx-font-size: 15px; -fx-font-weight: bold;"/>
+
+            <TableView fx:id="bookingsTable" prefHeight="300">
+                <columns>
+                    <TableColumn fx:id="colBookingId"  text="Booking ID"  prefWidth="120"/>
+                    <TableColumn fx:id="colFlight"     text="Flight"      prefWidth="90"/>
+                    <TableColumn fx:id="colFrom"       text="From"        prefWidth="100"/>
+                    <TableColumn fx:id="colTo"         text="To"          prefWidth="100"/>
+                    <TableColumn fx:id="colSeat"       text="Seat"        prefWidth="80"/>
+                    <TableColumn fx:id="colClass"      text="Class"       prefWidth="90"/>
+                    <TableColumn fx:id="colPrice"      text="Price"       prefWidth="80"/>
+                    <TableColumn fx:id="colStatus"     text="Status"      prefWidth="90"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </HBox>
+</AnchorPane>

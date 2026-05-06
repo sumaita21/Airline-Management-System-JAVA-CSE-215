@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="application.LoginController"
+            prefHeight="450.0" prefWidth="500.0"
+            style="-fx-background-color: #e8f0fe;">
+
+    <VBox alignment="CENTER" spacing="15"
+          AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0"
+          AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+
+        <Label text="✈ Airline Management System"
+               style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #1a237e;"/>
+        <Label text="Login to your account"
+               style="-fx-font-size: 13px; -fx-text-fill: gray;"/>
+
+        <TextField fx:id="usernameField" promptText="Username"
+                   maxWidth="280" style="-fx-padding: 10; -fx-font-size: 13px;"/>
+        <PasswordField fx:id="passwordField" promptText="Password"
+                       maxWidth="280" style="-fx-padding: 10; -fx-font-size: 13px;"/>
+
+        <Label fx:id="errorLabel" text=""
+               style="-fx-text-fill: red; -fx-font-size: 12px;"/>
+
+        <Button text="Login" onAction="#handleLogin" maxWidth="280"
+                style="-fx-background-color: #1a237e; -fx-text-fill: white;
+                       -fx-font-size: 14px; -fx-padding: 10; -fx-cursor: hand;"/>
+
+        <Label text="Don't have an account?"
+               style="-fx-text-fill: gray; -fx-font-size: 12px;"/>
+
+        <Button text="Register as User" onAction="#handleRegister" maxWidth="280"
+                style="-fx-background-color: #43a047; -fx-text-fill: white;
+                       -fx-font-size: 13px; -fx-padding: 8; -fx-cursor: hand;"/>
+    </VBox>
+</AnchorPane>

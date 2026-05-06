@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="application.BookFlightController"
+            prefHeight="780.0" prefWidth="620.0"
+            style="-fx-background-color: #f0f4f8;">
+
+    <ScrollPane fitToWidth="true"
+                AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0"
+                AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0"
+                style="-fx-background-color: transparent;">
+
+        <VBox spacing="15" style="-fx-padding: 30;">
+
+            <HBox alignment="CENTER_LEFT" spacing="15">
+                <Button text="← Back" onAction="#handleBack"
+                        style="-fx-background-color: #1a237e;
+                               -fx-text-fill: white;
+                               -fx-padding: 8 15; -fx-cursor: hand;"/>
+                <Label text="✈ Book Flight"
+                       style="-fx-font-size: 20px; -fx-font-weight: bold;
+                              -fx-text-fill: #1a237e;"/>
+            </HBox>
+
+            <!-- Flight Info -->
+            <VBox spacing="5"
+                  style="-fx-background-color: #1a237e; -fx-padding: 15;
+                         -fx-background-radius: 10;">
+                <Label fx:id="flightInfoLabel" text=""
+                       style="-fx-text-fill: white; -fx-font-size: 14px;
+                              -fx-font-weight: bold;"/>
+                <Label fx:id="flightDateLabel" text=""
+                       style="-fx-text-fill: #90caf9; -fx-font-size: 12px;"/>
+            </VBox>
+
+            <!-- Booking Form -->
+            <VBox spacing="12"
+                  style="-fx-background-color: white; -fx-padding: 20;
+                         -fx-background-radius: 10;
+                         -fx-effect: dropshadow(gaussian,#ccc,5,0,0,2);">
+
+                <Label text="Passenger Name *"
+                       style="-fx-font-weight: bold;"/>
+                <TextField fx:id="passengerNameField"
+                           promptText="Enter full name"
+                           style="-fx-padding: 10;"/>
+
+                <Label text="Seat Class *"
+                       style="-fx-font-weight: bold;"/>
+                <ComboBox fx:id="seatClassCombo" prefWidth="200"
+                          promptText="Select class"
+                          onAction="#handleClassSelected"/>
+
+                <Label text="Select Seat *"
+                       style="-fx-font-weight: bold;"/>
+                <ComboBox fx:id="seatCombo" prefWidth="200"
+                          promptText="Select seat"/>
+
+                <Separator/>
+
+                <!-- Available Coupons -->
+                <Label text="🎟 Available Coupons"
+                       style="-fx-font-weight: bold; -fx-font-size: 13px;"/>
+                <VBox fx:id="couponListBox" spacing="6"
+                      style="-fx-background-color: #f5f5f5;
+                             -fx-padding: 10; -fx-background-radius: 8;"/>
+
+                <Label text="Or enter code manually:"
+                       style="-fx-text-fill: gray; -fx-font-size: 11px;"/>
+                <HBox spacing="10">
+                    <TextField fx:id="couponField"
+                               promptText="Enter coupon code"
+                               prefWidth="200" style="-fx-padding: 8;"/>
+                    <Button text="Apply" onAction="#handleApplyCoupon"
+                            style="-fx-background-color: #43a047;
+                                   -fx-text-fill: white; -fx-padding: 8 15;
+                                   -fx-cursor: hand;"/>
+                    <Button text="Clear" onAction="#handleClearCoupon"
+                            style="-fx-background-color: gray;
+                                   -fx-text-fill: white; -fx-padding: 8 15;
+                                   -fx-cursor: hand;"/>
+                </HBox>
+                <Label fx:id="couponLabel" text=""
+                       style="-fx-font-size: 12px;"/>
+
+                <Separator/>
+
+                <!-- Employee Discount -->
+                <Label text="👷 Employee ID (optional)"
+                       style="-fx-font-weight: bold;"/>
+                <HBox spacing="10">
+                    <TextField fx:id="employeeIdField"
+                               promptText="Enter employee ID"
+                               prefWidth="200" style="-fx-padding: 8;"/>
+                    <Button text="Apply" onAction="#handleApplyEmployee"
+                            style="-fx-background-color: #ff8f00;
+                                   -fx-text-fill: white; -fx-padding: 8 15;
+                                   -fx-cursor: hand;"/>
+                    <Button text="Clear" onAction="#handleClearEmployee"
+                            style="-fx-background-color: gray;
+                                   -fx-text-fill: white; -fx-padding: 8 15;
+                                   -fx-cursor: hand;"/>
+                </HBox>
+                <Label fx:id="employeeLabel" text=""
+                       style="-fx-font-size: 12px;"/>
+
+                <Separator/>
+
+                <!-- Price Display -->
+                <HBox spacing="30">
+                    <VBox spacing="3">
+                        <Label text="Original Price"
+                               style="-fx-font-weight: bold;"/>
+                        <Label fx:id="originalPriceLabel" text="৳ 0"
+                               style="-fx-font-size: 14px;"/>
+                    </VBox>
+                    <VBox spacing="3">
+                        <Label text="Discount"
+                               style="-fx-font-weight: bold;"/>
+                        <Label fx:id="discountLabel" text="0%"
+                               style="-fx-font-size: 14px;
+                                      -fx-text-fill: #43a047;"/>
+                    </VBox>
+                    <VBox spacing="3">
+                        <Label text="Final Price"
+                               style="-fx-font-weight: bold;"/>
+                        <Label fx:id="finalPriceLabel" text="৳ 0"
+                               style="-fx-font-size: 18px;
+                                      -fx-font-weight: bold;
+                                      -fx-text-fill: #1a237e;"/>
+                    </VBox>
+                </HBox>
+            </VBox>
+
+            <Label fx:id="errorLabel" text=""
+                   style="-fx-text-fill: red; -fx-font-size: 12px;"/>
+
+            <Button text="Proceed to Payment ➜"
+                    onAction="#handleProceedPayment"
+                    maxWidth="Infinity"
+                    style="-fx-background-color: #1a237e;
+                           -fx-text-fill: white; -fx-font-size: 15px;
+                           -fx-padding: 13; -fx-cursor: hand;"/>
+        </VBox>
+    </ScrollPane>
+</AnchorPane>
